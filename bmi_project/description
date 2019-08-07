@@ -1,0 +1,76 @@
+장고로 웹 사이트 만들기
+
+1. 파이참 프로젝트 생성
+2. 장고 설치
+pip install django==2.2.1 : 특정 버전을 언급하여 설치할 경우
+3. 장고 프로젝트 생성
+django-admin startproject config . --> config : 설정폴더 이름
+1) config 폴더 : 프로젝트 관련 기본 파일들
+2) manage.py : 장고 프로젝트 관련 명령을 전달하는 파일
+__init__.py : python2 와의 호환을 위하여 있는 파일 - python2 에서는 이게 있어야 모듈로 인식함
+장고는 앱들의 모임 - 여러개의 앱들을 모아서 만들어진 것
+앱 - 기능단위로 쪼개어진 블록 , 기준이 없음 , 개발자 마음
+sqlparse - ORM
+
+인터널라이제이션 , 로컬라이제이션 기능 제공
+인터널라이제이션은 안하지만 로컬라이제이션은 하는 경우가 많음
+
+##STATIC_URL = 보안을 위한 가상 경로
+wsgi.py - 장고 웹 어플리케이션을 위한 진입점
+
+4-0. 데이터베이스 셋팅(onlineshop 등...)
+4. DB 초기화
+https://dbeaver.io/ , sqlite viewer ... 등 이용
+python manage.py migrate -- 변경사항이 찾아진게 있다면 그 변경사항을 적용해라
+
+5. 관리자 계정 생성
+python manage.py createsuperuser
+python manage.py changepassword admin -> 비밀번호 생각 안날때
+** 서버 실행하기
+python manage.py runserver --> 운영에서는 이렇게 안씀
+python manage.py runserver 8080 --> 임의의 포트번호로 구동 가능
+python manage.py runserver 0:8000 --> 외부에서 접근
+>> 이 명령어 들은 라이브에서 안씀
+
+메인페이지 화면
+스택오버플로우나 블로그에서 찾지 말기 --> 정식 도큐먼트 보기
+모르는것 --> 장고 커뮤니티
+카카오 오픈채팅 --> 장고 검색하면 나옴
+튜토리얼 앱은 과제 --> 투표 앱 , 몰라도 그냥 무조건 해보기
+
+
+기능을 만든다
+6. 앱 만들기
+python manage.py startapp bmi
+웹 프레임 워크의 기본 패턴 : MVC
+Model - 데이터 클래스화 해서 다룰 수 있게 하는 개념
+View - 화면을 구성하는 코드 (html)
+Controller - 로직을 담당
+
+MTV 패턴
+Model - Model (모델 클레스)
+template - View (확장자가 .html)e
+View - Controller (클래스형 뷰 , 함수형 뷰)
+
+디자인 패턴 - 설계상 발생할 수 있는 문제를 해결하는 해결책
+
+7. 모델생성 : 데이터베이스에 원하는 데이터를 어떤 형태로 어떤 제약조건을 가지고 저장할 것이냐?
+8. 뷰 생성 : 로직 어떤 기능을 수행하는 페이지를 만든다.
+9. 템플릿 생성 : 만약 뷰에서 화면이 보여야 한다면 탬플릿을 만든다.
++ 템플릿 문법 - 템플릿 엔진에 따라 다르다 (템플릿 엔진 제조사에서 만든 것들을 붙일 수 있다) - 해당 제조사 문법에 대한 공부 필요
+10. URL 연결 : 어떤 주소로 접속하면 어떤 뷰가 동작하게 할 것이냐?
+
+urls.py
+스타트업들은 장고를 많이 씀 --> crud 최적화
+
+파이선 장고 tdd --> 테스트 코드 작성 , tests.py
+
+
+
+BMI
+Create - BMI 입력 (저장되는 순간 계산을 해줌)
+Read - 목록
+Update - BMI 수정
+Delete - BMI 삭제
+
+
