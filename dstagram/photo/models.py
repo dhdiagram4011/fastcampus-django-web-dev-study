@@ -9,6 +9,7 @@ admin = User.objects.get(pk=1)
 admin.photo_set
 admin.photos = 내가 올린 사진들을 모두 가져옴
 """
+##jango crontab --> 리눅스 크론잡 보다는 성능이 떨어짐 , e.g) 매주 월요일 마다 발송되는 DM
 
 # Create your models here.
 

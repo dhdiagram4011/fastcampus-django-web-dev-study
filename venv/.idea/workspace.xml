@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0b2007e-269e-42fd-8ab8-08414fea0bc1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../bmi_project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bmi_project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dstagram/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dstagram/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dstagram/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../dstagram/config/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="b0b2007e-269e-42fd-8ab8-08414fea0bc1" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
