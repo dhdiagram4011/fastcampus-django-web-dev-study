@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="da4b6dfc-d5e3-4cf9-9b8f-37056107ef03" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dstagram/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dstagram/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dstagram/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../dstagram/config/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../venv/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../venv/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web_django_dev" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
