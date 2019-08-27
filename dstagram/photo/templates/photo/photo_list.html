@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Photo List
+{% endblock %}
+
+
+{% comment %}
+단수객체 : object
+복수객체 : object_list
+{% endcomment %}
+
+{% block content %}
+{% for object in object_list %}
+<div class="card mt-5">
+    <div class="card-header">
+        {{object.owner.username}}
+    </div>
+  <img src="{{object.image.url}}" class="card-img-top">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">좋아요</li>
+    </ul>
+  <div class="card-body">
+      <p class="card-text">{{object.description}}</p>
+  </div>
+
+    <div class="card-body">
+     <a href="#" class="card-link">댓글달기</p>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}
+
