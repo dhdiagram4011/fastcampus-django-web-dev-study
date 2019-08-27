@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form action="" method="post" class="mt-5" enctype="multipart/form-data"> #파일을 전달해야 하는 경우 : multipart/form-data
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" valu="업로드" class="btn btn-outline-primary"></input>
+</form>
+{% endblock %}

@@ -2,6 +2,7 @@ from django.db import models
 
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
+from django.urls import reverse_lazy
 #커스텀 모델을 사용할 때(주민번호, 휴대폰 번호... 등등, 바뀔가능성이 있거나 확실히 바뀔 가능성이 있는 경우 이용)
 
 """
@@ -40,6 +41,9 @@ class Photo(models.Model):
     #메타클레스
     class Meta:
         ordering = ['-updated' , '-created']
+
+    def get_absolute_url(self):
+        return reverse_lazy('photo_detail', args=[self.id])
 
 #python manage.py makemigrations -> 변경사항을 추척해서 마이그레이션 파일을 만든다
 #python manage.py migrate --> 만들어진 쿼리를 실행한다

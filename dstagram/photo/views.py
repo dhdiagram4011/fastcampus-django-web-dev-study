@@ -16,3 +16,37 @@ class PhotoList(ListView):
     template_name = 'photo/photo_list.html'
 
 
+class PhotoCreate(CreateView):
+    model = Photo
+    fields = ['image','description']
+    template_name = 'photo/photo_upload.html'
+    #Todo : 작성자 설정
+    # 클래스형 뷰에서 어떤 로직을 수정하려면 오버라이드 한다
+    def form_valid(self, form):
+        form.instance.owner_id = self.request.user.id
+        return super().form_valid(form)
+
+
+class PhotoUpdate(UpdateView):
+    model = Photo
+    fields = ['description']
+    template_name = 'photo/photo_modify.html'
+
+
+class PhotoDetail(DetailView):
+    model = Photo
+    template_name = 'photo/photo_detail.html'
+
+
+class PhotoDelete(DeleteView):
+    model = Photo
+    template_name = 'photo/photo_delete.html'
+
+
+from django.urls import reverse_lazy
+class PhotoDelete(DeleteView):
+    model = Photo
+    success_url = reverse_lazy('photo_list')
+    template_name = 'photo/photo_delete.html'
+
+

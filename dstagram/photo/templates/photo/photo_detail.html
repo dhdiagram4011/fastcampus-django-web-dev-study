@@ -1,0 +1,17 @@
+<div class="card mt-5">
+    <div class="card-header">
+        {{object.owner.username}}
+    </div>
+  <img src="{{object.image.url}}" class="card-img-top">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">좋아요</li>
+    </ul>
+  <div class="card-body">
+      <p class="card-text">{{object.description}}</p>
+  <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+          <a href="{% url 'photo_update' object.id %}" class="btn btn-sm btn-outline-warning">수정</a>
+          <a href="{% url 'photo_delete' object.id %}" class="btn btn-sm btn-outline-danger">삭제</a>
+      </li>
+  </ul>
+</div>
