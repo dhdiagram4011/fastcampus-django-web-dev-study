@@ -15,8 +15,18 @@ class PhotoList(ListView):
     #앱이름/모델명_list.html
     template_name = 'photo/photo_list.html'
 
+"""
+- midware
+뷰를 동작하기에 앞서 어떤 절차를 추가하고 싶을때
+* 자주 실행하야 되는 공통된 절차가 있다면 코드를 중복 사용해야 한다 --> 그래서 아래의 2가지 기법을 이용함
+1) decorator : 함수형 뷰에 이용
+2) mixin : 클래스형 뷰
+"""
 
-class PhotoCreate(CreateView):
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+
+class PhotoCreate(LoginRequiredMixin, CreateView):
     model = Photo
     fields = ['image','description']
     template_name = 'photo/photo_upload.html'
@@ -27,7 +37,7 @@ class PhotoCreate(CreateView):
         return super().form_valid(form)
 
 
-class PhotoUpdate(UpdateView):
+class PhotoUpdate(LoginRequiredMixin, UpdateView):
     model = Photo
     fields = ['description']
     template_name = 'photo/photo_modify.html'
@@ -38,15 +48,23 @@ class PhotoDetail(DetailView):
     template_name = 'photo/photo_detail.html'
 
 
-class PhotoDelete(DeleteView):
+class PhotoDelete(LoginRequiredMixin, DeleteView):
     model = Photo
     template_name = 'photo/photo_delete.html'
 
 
 from django.urls import reverse_lazy
+from django.shortcuts import redirect
 class PhotoDelete(DeleteView):
     model = Photo
     success_url = reverse_lazy('photo_list')
     template_name = 'photo/photo_delete.html'
+
+    def post(self, request, *args, **kwargs):
+        object = self.get_object()
+        if object.owner != request.user:
+            print("유저 일치하지 않음")
+            return redirect(object.get_absolute_url())
+        return super().post(request,*args,**kwargs)
 
 
