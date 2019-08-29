@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'photo',
     'accounts',
+    'disqus',
+    'django.contrib.sites', #현제 사이트의 정보를 관리해 주는 역할을 함
 ]
 
 MIDDLEWARE = [
@@ -127,4 +129,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 from django.urls import reverse_lazy
 LOGIN_REDIRECT_URL = reverse_lazy('photo_list')
+
+SITE_ID = 1
+DISQUS_WEBSITE_SHORTNAME = 'dhdiagram'
+
 
