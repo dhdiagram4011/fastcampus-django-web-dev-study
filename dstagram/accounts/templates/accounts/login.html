@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="" method="post" calss="mt-5">
+    <div class="alert alert-success">Please enter your login information.</div>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="login" class="btn btn-lg btn-success">
+</form>
+{% endblock %}

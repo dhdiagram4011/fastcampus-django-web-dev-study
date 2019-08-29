@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include('photo.urls')),
     re_path(r'^images/(?P<path>.*)$', serve, {'document_root':settings.MEDIA_ROOT}),
+    path('accounts/', include('accounts.urls')),
 ]
