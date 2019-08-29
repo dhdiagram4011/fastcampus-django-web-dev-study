@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="alert alert-success">SignUp Success! Welcome {{new_user.username}}!!</div>
+<br>
+<a href="{% url 'login' %}" class="btn btn-outline-primary">Move to Login</a>
+{% endblock %}

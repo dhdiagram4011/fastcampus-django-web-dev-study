@@ -4,7 +4,7 @@ from django import forms
 class RegisterForm(forms.ModelForm):
     #새로운 필드들
     password = forms.CharField(label='Password', widget=forms.PasswordInput)
-    passsword2 = forms.CharField(label='Repeat password', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Repeat password', widget=forms.PasswordInput)
     #추가로직 및 매서드
     def clean_password2(self): #clean_필드명으로 정해져 있음
         #valid 메서드가 실행될때
