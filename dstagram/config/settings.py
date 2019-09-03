@@ -128,6 +128,7 @@ USE_TZ = True
 
 #가상 URL - 가짜경로 - 보안을 위해서
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 MEDIA_URL = '/images/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
