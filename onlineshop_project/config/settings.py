@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'cart',
     'coupon',
     'order',
+    'storages',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -155,3 +158,8 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 STATIC_URL = '/static/'
+
+#미디어 파일을 다룰 수 있는 경로
+DEFAULT_FILE_STORAGE = 'config.asset_storage.MediaStorage'
+
+CKEDITOR_UPLOAD_PATH = 'editor/'
