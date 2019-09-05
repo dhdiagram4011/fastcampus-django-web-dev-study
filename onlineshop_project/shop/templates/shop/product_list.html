@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if current_category %}{{current_category.name}}{%else%}All{% endif %} Category Product
+{% endblock %}
+
+{% block content %}
+    {% for proudct in products %}
+        {{product.name}}
+    {% endfor %}
+{% endblock %}

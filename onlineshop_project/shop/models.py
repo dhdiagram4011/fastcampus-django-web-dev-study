@@ -1,6 +1,9 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 
+from django.urls import reverse
+
+
 # Create your models here.
 #SEO 작업 : 검색이 잘 되게 하기 위한 작업
 
@@ -18,7 +21,7 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return ""
+        return reverse('shop:product_in_category',args=[self.slug])
 
 
 class Product(models.Model):
@@ -44,6 +47,6 @@ class Product(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return ""
+        return reverse('shop:product_detail', args=[self.id, self.slug])
 
 
