@@ -136,8 +136,6 @@ USE_TZ = True
 # 그룹생성
 # 키 자동으로 생성해줌 - S3 권한만 부여
 # 연동이 잘 되었는지 확인하는 방법 : python3.7 manage.py collectstatic --> css 파일들을 모두 모아줌
-AWS_ACCESS_KEY_ID = 'AKIAYZCC5N3IW4G7F2UK'
-AWS_SECRET_ACCESS_KEY = '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'
 
 AWS_REGION = 'ap-northeast-2'
 AWS_STORAGE_BUCKET_NAME = 'dhdiagram4011'
