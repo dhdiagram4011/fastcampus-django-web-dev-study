@@ -1,11 +1,54 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ product.name }} - detail{% endblock %}
+{% block title %}{{product.name}} - detail{% endblock %}
 
 {% block content %}
-{{product.name}}<br>
-{{product.price}}<br>
-{{product.stock}}<br>
-{{proudct.description|safe}}
+
+{% load humanize %}
+<div class="row no-gutters bg-light position-relative mt-3">
+    <div class="col-md-6 mb-md-0 p-md-4">
+        <img src="{{product.image.url}}" class="w-100" alt="{{product.name}}">
+    </div>
+    <div class="col-md-6 position-static p-4 pl-md-0">
+        <h5 class="mt-0">{{product.name}}</h5>
+        <p>
+            <form action="{ % url 'add_product' object.id %}" method="post">
+                <table class="table table-striped">
+                    <tr>
+                        <td>Price</td>
+                        <td>{{product.price|intcomma}}</td>
+                    </tr>
+                    <tr>
+                        <td>Stock</td>
+                        <td>{{product.stock|intcomma}}</td>
+                    </tr>
+                    <tr>
+                        <td>Order Available</td>
+                        <td>{{product.available_order}}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{form.quantity.label}}
+                        </td>
+                        <td>
+                            {{form.quantity}}
+                        </td>
+                    </tr>
+                </table>
+                {% csrf_token %}
+                <input type="submit" class="btn btn-sm btn-outline-success float-right" value="Add to Cart">
+            </form>
+        </p>
+
+
+    </div>
+</div>
+
+<div class="jumbotron jumbotron-fluid bg-white">
+    <div class="container">
+
+        {{product.description|safe}}
+    </div>
+</div>
 
 {% endblock %}

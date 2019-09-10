@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'django_extensions',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -85,7 +86,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'onlineshop',
-        'HOST': 'dhdiagram4011.cpuplptigynd.ap-northeast-2.rds.amazonaws.com',
+        'HOST': 'onlineshop.cqnjrkppppyo.ap-northeast-2.rds.amazonaws.com',
         'USER': 'dhdiagram4011',
         'PASSWORD': 'k20504003',
         'PORT': '5432',
@@ -141,6 +142,10 @@ AWS_REGION = 'ap-northeast-2'
 AWS_STORAGE_BUCKET_NAME = 'dhdiagram4011'
 AWS_S3_CUSTOM_DOMAIN = 's3.%s.amazonaws.com/%s' % (AWS_REGION, AWS_STORAGE_BUCKET_NAME)
 
+AWS_ACCESS_KEY_ID = 'AKIASF6RBQKJI4ZWJXRV'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'hesigner'
+
 # For CKEDITOR
 AWS_QUERYSTRING_AUTH = False
 
@@ -162,3 +167,5 @@ STATIC_URL = '/static/'
 DEFAULT_FILE_STORAGE = 'config.asset_storage.MediaStorage'
 
 CKEDITOR_UPLOAD_PATH = 'editor/'
+
+CART_ID = "cart_id_session"

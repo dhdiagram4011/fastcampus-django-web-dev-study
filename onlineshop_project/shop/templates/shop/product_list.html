@@ -1,11 +1,51 @@
 {% extends 'base.html' %}
 
+{% block title %}
+{% if current_category %}{{current_category.name}}{%else%}All{% endif %} Category Product
+{% endblock%}
+{% load shop_tags %}
 {% block content %}
-    {% if current_category %}{{current_category.name}}{%else%}All{% endif %} Category Product
-{% endblock %}
+<div class="row">
+    <div class="col-3">
+            <div class="list-group mt-3">
+                <a href="/" class="list-group-item {% if not current_category %}active{% endif %}">All</a>
+                {% for c in categories %}
+                    <a href="{{c.get_absolute_url}}" class="list-group-item {% if current_category.slug == c.slug %}active{% endif %}">{{c.name}}</a>
+                {% endfor %}
+            </div>
+        </div>
+    <div class="col">
+{% for product in products %}
 
-{% block content %}
-    {% for proudct in products %}
-        {{product.name}}
-    {% endfor %}
+{% remain_by forloop.counter 4 as remainer %}
+    {% if remainer == 1 %}
+        <div class="row">
+    {% endif %}
+    <div class="col">
+        <div class="card mt-3" style="width: 100%;">
+            <div class="card-header">
+                [{{product.category}}]
+            </div>
+            <img src="{{product.image.url}}" class="card-img-top" alt="{{product.name}}">
+            <div class="card-body">
+                <h5 class="card-title">{{product.name}}</h5>
+                <p class="card-text">{{product.name|truncatechars:30}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Price : {{product.price}}</li>
+                <li class="list-group-item">Stock : {{product.stock}}</li>
+                <li class="list-group-item"><span class="badge badge-success">Order Avaiable</span></li>
+            </ul>
+            <div class="card-body">
+                <a href="{{product.get_absolute_url}}" class="card-link">Detail</a>
+                <a href="#" class="card-link">Cart</a>
+            </div>
+        </div>
+    </div>
+    {% if remainer == 0 or forloop.last%}
+</div>
+{% endif %}
+{% endfor %}
+    </div>
+</div>
 {% endblock %}
